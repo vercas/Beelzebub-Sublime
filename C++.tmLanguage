@@ -235,7 +235,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(assert|msg|msg_|breakpoint)\b\s*</string>
+			<string>\b(?:assert(?:_or)?|msg|msg_|breakpoint)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.beelzebub.c++</string>
 		</dict>
@@ -291,7 +291,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(Handle|HandleType|HandleResult|ObjectAllocator|ObjectPool|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu)\b</string>
+			<string>\b(Handle|HandleType|HandleResult|ObjectAllocator|ObjectPool|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SmpBarrier|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu)\b</string>
 			<key>name</key>
 			<string>storage.type.classes.beelzebub</string>
 		</dict>
@@ -300,7 +300,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b([pv](?:addr|size)_t|pgind_t|comp_t|creg_t|seg_t|s?byte|int_cookie_t|spinlock_t|Atomic|(?:Atomic)?[SU]?Int(?:8|16|32|64|Ptr)|Atomic(?:Float|Single|Double|Bool|Size|PtrDiff))\b</string>
+			<string>\b(?:[pv](?:addr|size)_t|pgind_t|comp_t|creg_t|seg_t|s?byte|int_cookie_t|spinlock_t|Atomic|(?:Atomic)?[SU]?Int(?:8|16|32|64|Ptr)|Atomic(?:Float|Single|Double|Bool|Size|PtrDiff)|obj_ind_t)\b</string>
 			<key>name</key>
 			<string>storage.type.integers.beelzebub</string>
 		</dict>
