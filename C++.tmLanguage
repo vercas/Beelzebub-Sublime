@@ -211,6 +211,15 @@
 			<string>keyword.control.c++</string>
 		</dict>
 <!--------------------------------------
+	Keyword Control - Beelzebub
+---------------------------------------->
+		<dict>
+			<key>match</key>
+			<string>\b(with(?:Interrupts|Lock(?:Simple|Static)?)?|__try|__catch)\b</string>
+			<key>name</key>
+			<string>keyword.control.beelzebub</string>
+		</dict>
+<!--------------------------------------
 	Keyword Operator - C++
 	vModification: Moved all of them to the correct categories.
 	Added `typedef`.
@@ -235,9 +244,18 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:assert(?:_or)?|msg|msg_|breakpoint)\b\s*</string>
+			<string>\b(?:assert(?:_or)?|msg_?|breakpoint)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.beelzebub.c++</string>
+		</dict>
+<!--------------------------------------
+	Beelzebub Debug Macros - STRONG
+---------------------------------------->
+		<dict>
+			<key>match</key>
+			<string>\b(?:ASSERT|MSG_?)\b\s*</string>
+			<key>name</key>
+			<string>keyword.operator.debug.strong.beelzebub.c++</string>
 		</dict>
 <!--------------------------------------
 	Beelzebub Keyword Macros
@@ -245,7 +263,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(__bland|__cold|__hot|__noreturn|__used|__unused|__must_check|__unreachable_code|__prefetch|__packed|__alignof|(?:__)?sizeof|__build_data|__fastcall|(?:un)?likely)\b\s*</string>
+			<string>\b(__bland|__cold|__hot|__noreturn|__returns_twice|__used|__unused|__must_check|__unreachable_code|__prefetch|__packed|__align(?:of|ed(?:_nat)?)|(?:__)?sizeof|__build_data|__fastcall(?:_ia32)|(?:un)?likely|__returns_nonnull|__malloc)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.macros.beelzebub</string>
 		</dict>
@@ -254,7 +272,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(__attribute(?:__)?|__always_inline__|__noinline__|__const__|__cold__|__hot__|__noreturn__|__used__|__unused__|__warn_unused_result__|__packed__|__section__|__fastcall__|__target__)\b</string>
+			<string>\b(__attribute(?:__)?|__always_inline__|__noinline__|__const__|__cold__|__hot__|__noreturn__|__returns_twice__|__returns_nonnull__|__malloc__|__used__|__unused__|__warn_unused_result__|__packed__|__section__|__fastcall__|__target__)\b</string>
 			<key>name</key>
 			<string>keyword.operator.attribute.gcc</string>
 		</dict>
@@ -291,7 +309,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(Handle|HandleType|HandleResult|ObjectAllocator|ObjectPool|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SmpBarrier|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu)\b</string>
+			<string>\b(Handle|HandleType|HandleResult|(?:Object|Shard)Allocator(?:Smp)?|(?:ObjectPool|Slab)(?:Smp|Base)|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|SerialTerminal|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SmpBarrier|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu|Domain|Lapic|Gdt(?:Register|EntryShort|Tss64Entry)|Idt(?:Register|Gate(?:Type)?)|InterruptGuard|LockGuard(?:Simple|Flexible)?|Vmm(?:Arc)?|Exception(?:Guard|Context)?|Image(?:s|Type|Role)?)\b</string>
 			<key>name</key>
 			<string>storage.type.classes.beelzebub</string>
 		</dict>
@@ -439,7 +457,7 @@
 ----------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:MainTerminal|MainPageAllocator)\b</string>
+			<string>\b(?:PageSize|MainTerminal|DebugTerminal|MainPageAllocator)\b</string>
 			<key>name</key>
 			<string>variable.beelzebub</string>
 		</dict>
@@ -1337,6 +1355,8 @@
 		</dict>
 <!-------------------------------------------
 	Constant Other Placeholder - C
+							   - GCC Inline Assembly
+							   - Beelzebub
 ---------------------------------------------->
 		<key>string_placeholder</key>
 		<dict>
@@ -1344,9 +1364,15 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?x)%([HcCsbB#*n%]|[uixX][1248sSpP])</string>
+					<string>%([HcCsbBt#*n%]|[uixX][1248sSpP])</string>
 					<key>name</key>
 					<string>constant.other.placeholder.beelzebub.c</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>%(\d|\[[_a-zA-Z]\w*\])</string>
+					<key>name</key>
+					<string>constant.other.placeholder.gcc.asm</string>
 				</dict>
 				<dict>
 					<key>match</key>

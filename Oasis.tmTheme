@@ -98,6 +98,19 @@
 				<string>#6146ab</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Keyword</string>
+			<key>scope</key>
+			<string>keyword.operator.debug.strong</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#CCAC00</string>
+			</dict>
+		</dict>
 <!-- END vModification -->
 		<dict>
 			<key>name</key>
