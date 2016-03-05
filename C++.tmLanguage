@@ -253,7 +253,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:ASSERT|MSG_?)\b\s*</string>
+			<string>\b(?:ASSERT(?:_(?:N?EQ))?|MSG_?)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.strong.beelzebub.c++</string>
 		</dict>
@@ -1364,15 +1364,15 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>%([HcCsbBt#*n%]|[uixX][1248sSpP])</string>
+					<string>%[zbhwkqlc]?(\d|\[[_a-zA-Z]\w*\])</string>
 					<key>name</key>
-					<string>constant.other.placeholder.beelzebub.c</string>
+					<string>constant.other.placeholder.gcc.asm</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>%(\d|\[[_a-zA-Z]\w*\])</string>
+					<string>%([HcCsbBt#*n%]|[uixX][1248sSpP])</string>
 					<key>name</key>
-					<string>constant.other.placeholder.gcc.asm</string>
+					<string>constant.other.placeholder.beelzebub.c</string>
 				</dict>
 				<dict>
 					<key>match</key>
