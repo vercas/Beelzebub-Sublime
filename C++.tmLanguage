@@ -215,7 +215,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(with(?:Interrupts|Lock(?:Simple|Static)?)?|__try|__catch)\b</string>
+			<string>\b(with(?:Interrupts|Lock(?:Simple|Static)?|WriteProtect)?|__try|__catch|on(?:Debug|Release|Kernel))\b</string>
 			<key>name</key>
 			<string>keyword.control.beelzebub</string>
 		</dict>
@@ -226,7 +226,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:typedef|typeid)\b</string>
+			<string>\b(?:typedef|typeid|decltype|(?:__)?sizeof|offsetof)\b</string>
 			<key>name</key>
 			<string>keyword.operator.c++</string>
 		</dict>
@@ -253,7 +253,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:ASSERT(?:_(?:N?EQ))?|MSG_?)\b\s*</string>
+			<string>\b(?:DEBUG_TERM_?|ASSERT(?:_(?:N?EQ))?|MSG_?|DEFINE_TEST|SECTION|INFO_?|REQUIRE(?:_(?:EQ|NE|LT|LE|GT|GE))?)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.strong.beelzebub.c++</string>
 		</dict>
@@ -263,7 +263,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(__bland|__cold|__hot|__noreturn|__returns_twice|__used|__unused|__must_check|__unreachable_code|__prefetch|__packed|__align(?:of|ed(?:_nat)?)|(?:__)?sizeof|__build_data|__fastcall(?:_ia32)|(?:un)?likely|__returns_nonnull|__malloc)\b\s*</string>
+			<string>\b(__bland|__fancy|__sse2|__fpu|__min_float|__startup|__unit_test_declaration|__cold|__hot|__unoptimized|__noreturn|__returns_twice|__used|__unused|__weak|__alias|__must_check|__unreachable_code|__prefetch|__packed|__align(?:of|ed(?:_nat)?)|__build_data|__fastcall(?:_ia32)|(?:un)?likely|__returns_nonnull|__malloc)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.macros.beelzebub</string>
 		</dict>
@@ -272,7 +272,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(__attribute(?:__)?|__always_inline__|__noinline__|__const__|__cold__|__hot__|__noreturn__|__returns_twice__|__returns_nonnull__|__malloc__|__used__|__unused__|__warn_unused_result__|__packed__|__section__|__fastcall__|__target__)\b</string>
+			<string>\b(__attribute(?:__)?|__always_inline__|__noinline__|__const__|__cold__|__hot__|__noreturn__|__returns_twice__|__returns_nonnull__|__malloc__|__used__|__unused__|__weak__|__alias__|__warn_unused_result__|__packed__|__section__|__fastcall__|__target__)\b</string>
 			<key>name</key>
 			<string>keyword.operator.attribute.gcc</string>
 		</dict>
@@ -309,7 +309,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(Handle|HandleType|HandleResult|(?:Object|Shard)Allocator(?:Smp)?|(?:ObjectPool|Slab)(?:Smp|Base)|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|SerialTerminal|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SmpBarrier|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu|Domain|Lapic|Gdt(?:Register|EntryShort|Tss64Entry)|Idt(?:Register|Gate(?:Type)?)|InterruptGuard|LockGuard(?:Simple|Flexible)?|Vmm(?:Arc)?|Exception(?:Guard|Context)?|Image(?:s|Type|Role)?)\b</string>
+			<string>\b(Handle|handle_t|HandleType|HandleResult|(?:Object|Shard)Allocator(?:Smp)?|(?:ObjectPool|Slab)(?:Smp|Base)|MemoryManager|PageAllocator|PageAllocationSpace|PageDescriptor|Thread|Process|TerminalBase|SerialTerminal|VbeTerminal|TerminalCoordinates|TerminalWriteResult|TerminalDescriptor|Spinlock|SmpBarrier|SpinlockUninterruptible|SerialPort|ManagedSerialPort|IsrState|Cpu|Domain|Lapic|Gdt(?:Register|EntryShort|Tss64Entry)|Idt(?:Register|Gate(?:Type)?)|InterruptGuard|LockGuard(?:Simple|Flexible)?|WriteProtectGuard|Vmm(?:Arc)?|MemoryRange|MemoryRegion|MemoryFlags|MemoryAllocationOptions|MemoryMapOptions|Exception(?:Guard|Context)?|mem_re[lq]_opts_t|syscall_selection_t)\b</string>
 			<key>name</key>
 			<string>storage.type.classes.beelzebub</string>
 		</dict>
@@ -318,7 +318,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:[pv](?:addr|size)_t|pgind_t|comp_t|creg_t|seg_t|s?byte|int_cookie_t|spinlock_t|Atomic|(?:Atomic)?[SU]?Int(?:8|16|32|64|Ptr)|Atomic(?:Float|Single|Double|Bool|Size|PtrDiff)|obj_ind_t)\b</string>
+			<string>\b(?:[pv](?:addr|size)_t|pgind_t|comp_t|creg_t|seg_t|s?byte|int_cookie_t|spinlock_t|Atomic|(?:Atomic)?[SU]?Int(?:8|16|32|64|Ptr)|Atomic(?:Float|Single|Double|Bool|Size|PtrDiff)|obj_ind_t|frmdsc_t)\b</string>
 			<key>name</key>
 			<string>storage.type.integers.beelzebub</string>
 		</dict>
@@ -350,7 +350,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b((?:__)?const|(?:__)?extern|register|(?:__)?restrict|static|volatile|(?:__force|__no)?inline)\b</string>
+			<string>\b((?:__)?const|(?:__)?extern|register|(?:__)?restrict|static|volatile|(?:__force|__no)?inline|__noclone|__shared(?:_cpp)?(?:_inline)?|__public|__protected|__internal)\b</string>
 			<key>name</key>
 			<string>storage.modifier.c</string>
 		</dict>
@@ -457,7 +457,7 @@
 ----------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:PageSize|MainTerminal|DebugTerminal|MainPageAllocator)\b</string>
+			<string>\b(?:(?:Large)?PageSize|MainTerminal|DebugTerminal|MainPageAllocator)\b</string>
 			<key>name</key>
 			<string>variable.beelzebub</string>
 		</dict>
@@ -1370,7 +1370,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>%([HcCsbBt#*n%]|[uixX][1248sSpP])</string>
+					<string>%([HcCsbBt#*n%]|[uixX][123468sSpP])</string>
 					<key>name</key>
 					<string>constant.other.placeholder.beelzebub.c</string>
 				</dict>
