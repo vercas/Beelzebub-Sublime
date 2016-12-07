@@ -215,7 +215,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(with(?:Interrupts|Lock(?:Simple|Static)?|WriteProtect)?|__try|__catch|on(?:Debug|Release|Kernel))\b</string>
+			<string>\b(with(?:Interrupts|Lock(?:Simple|Static)?|WriteProtect)?|__(?:try|catch|x_(?:suspend|resume))|on(?:Debug|Release|Kernel))\b</string>
 			<key>name</key>
 			<string>keyword.control.beelzebub</string>
 		</dict>
@@ -244,7 +244,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:assert(?:_or)?|msg_?|breakpoint)\b\s*</string>
+			<string>\b(?:fail|assert(?:_or)?|msg_?|breakpoint)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.beelzebub.c++</string>
 		</dict>
@@ -253,7 +253,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b(?:DEBUG_TERM_?|ASSERT(?:_(?:N?EQ))?|MSG_?|DEFINE_TEST|SECTION|INFO_?|REQUIRE(?:_(?:EQ|NE|LT|LE|GT|GE))?)\b\s*</string>
+			<string>\b(?:DEBUG_TERM_?|FAIL|ASSERT(?:_(?:N?EQ))?|MSG_?|DEFINE_TEST|SECTION|INFO_?|REQUIRE(?:_(?:EQ|NE|LT|LE|GT|GE))?)\b\s*</string>
 			<key>name</key>
 			<string>keyword.operator.debug.strong.beelzebub.c++</string>
 		</dict>
@@ -484,7 +484,7 @@
 ---------------------------------------->
 		<dict>
 			<key>match</key>
-			<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
+			<string>\b((0(x|X)[0-9a-fA-F']*)|(([0-9']+\.?[0-9]*)|(\.[0-9']+))((e|E)(\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\b</string>
 			<key>name</key>
 			<string>constant.numeric.c</string>
 		</dict>
